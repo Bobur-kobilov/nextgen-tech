@@ -44,19 +44,20 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-gradient-accent rounded-lg flex items-center justify-center transition-smooth group-hover:shadow-glow">
-              <span className="text-white font-bold text-sm">NT</span>
+          <Link to="/" className="flex items-center space-x-1 sm:space-x-2 group">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-accent rounded-lg flex items-center justify-center transition-smooth group-hover:shadow-glow">
+              <span className="text-white font-bold text-xs sm:text-sm">NT</span>
             </div>
-            <span className={`text-xl font-display font-black transition-smooth ${
+            <span className={`text-lg sm:text-xl font-display font-black transition-smooth ${
               isScrolled 
                 ? 'text-gray-900 group-hover:text-tech-blue' 
                 : 'text-white group-hover:text-tech-blue'
             }`}>
-              {COMPANY.name}
+              <span className="hidden sm:inline">{COMPANY.name}</span>
+              <span className="sm:hidden">NextGen</span>
             </span>
           </Link>
 
@@ -86,7 +87,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-4">
             <Button 
               onClick={() => navigate('/contact')}
-              className="bg-gradient-accent hover:shadow-glow transition-smooth font-display font-semibold"
+              className="bg-gradient-accent hover:shadow-glow transition-smooth font-display font-semibold text-sm px-4 py-2"
             >
               {t.common.contact_us}
             </Button>
@@ -95,26 +96,26 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`lg:hidden p-2 transition-smooth ${
-              isScrolled 
-                ? 'text-gray-900 hover:text-tech-blue' 
+            className={`lg:hidden p-1 sm:p-2 transition-smooth ${
+              isScrolled
+                ? 'text-gray-900 hover:text-tech-blue'
                 : 'text-white hover:text-tech-blue'
             }`}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden border-t border-white/20 glass">
-            <div className="py-4 space-y-2">
+            <div className="py-2 sm:py-4 space-y-1 sm:space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-2 text-sm font-medium transition-smooth ${
+                  className={`block px-3 sm:px-4 py-2 text-sm font-medium transition-smooth ${
                     isActive(item.path)
                       ? 'text-tech-blue bg-white/10 rounded-md'
                       : 'text-white/80 hover:text-white hover:bg-white/5 rounded-md'
@@ -124,14 +125,13 @@ export default function Header() {
                 </Link>
               ))}
               
-              
-              <div className="px-4 py-2">
+              <div className="px-3 sm:px-4 py-2">
                 <Button 
                   onClick={() => {
                     navigate('/contact');
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-gradient-accent hover:shadow-glow transition-smooth"
+                  className="w-full bg-gradient-accent hover:shadow-glow transition-smooth text-sm py-2"
                 >
                   {t.common.contact_us}
                 </Button>

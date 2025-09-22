@@ -38,13 +38,13 @@ export default function Services() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-hero text-white">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-hero text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 animate-fade-in">
               {t.services.title}
             </h1>
-            <p className="text-xl lg:text-2xl text-white/90 animate-fade-in">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 animate-fade-in px-2">
               {t.services.subtitle}
             </p>
           </div>
@@ -52,9 +52,9 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 lg:py-24">
+      <section className="py-8 sm:py-12 lg:py-16 xl:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {COMPANY.services.map((service, index) => {
               const IconComponent = serviceIcons[service.name as keyof typeof serviceIcons];
               return (

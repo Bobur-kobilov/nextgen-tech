@@ -8,57 +8,57 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-hero text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">NT</span>
+            <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm sm:text-lg">NT</span>
               </div>
-              <span className="text-2xl font-bold">{COMPANY.name}</span>
+              <span className="text-lg sm:text-xl lg:text-2xl font-bold">{COMPANY.name}</span>
             </div>
-            <p className="text-white/80 mb-6 max-w-md leading-relaxed">
+            <p className="text-white/80 mb-4 sm:mb-6 max-w-md leading-relaxed text-sm sm:text-base">
               {t.footer.description}
             </p>
             <div className="space-y-2">
-              <div className="flex items-center space-x-3 text-white/80">
-                <Mail className="w-4 h-4" />
-                <span className="text-sm">{COMPANY.email}</span>
+              <div className="flex items-center space-x-2 sm:space-x-3 text-white/80">
+                <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm">{COMPANY.email}</span>
               </div>
-              <div className="flex items-center space-x-3 text-white/80">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">{COMPANY.phone}</span>
+              <div className="flex items-center space-x-2 sm:space-x-3 text-white/80">
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm">{COMPANY.phone}</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t.footer.quick_links}</h3>
-            <ul className="space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{t.footer.quick_links}</h3>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
-                <Link to="/about" className="text-white/80 hover:text-white transition-smooth text-sm">
+                <Link to="/about" className="text-white/80 hover:text-white transition-smooth text-xs sm:text-sm">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-white/80 hover:text-white transition-smooth text-sm">
+                <Link to="/services" className="text-white/80 hover:text-white transition-smooth text-xs sm:text-sm">
                   {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="text-white/80 hover:text-white transition-smooth text-sm">
+                <Link to="/portfolio" className="text-white/80 hover:text-white transition-smooth text-xs sm:text-sm">
                   {t.nav.portfolio}
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-white/80 hover:text-white transition-smooth text-sm">
+                <Link to="/careers" className="text-white/80 hover:text-white transition-smooth text-xs sm:text-sm">
                   {t.nav.careers}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/80 hover:text-white transition-smooth text-sm">
+                <Link to="/contact" className="text-white/80 hover:text-white transition-smooth text-xs sm:text-sm">
                   {t.nav.contact}
                 </Link>
               </li>
@@ -67,11 +67,11 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t.footer.our_services}</h3>
-            <ul className="space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{t.footer.our_services}</h3>
+            <ul className="space-y-1 sm:space-y-2">
               {COMPANY.services.slice(0, 6).map((service) => (
                 <li key={service.name}>
-                  <span className="text-white/80 text-sm">{service.name}</span>
+                  <span className="text-white/80 text-xs sm:text-sm">{service.name}</span>
                 </li>
               ))}
             </ul>

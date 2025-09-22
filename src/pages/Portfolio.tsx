@@ -21,13 +21,13 @@ export default function Portfolio() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-hero text-white">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-hero text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 animate-fade-in">
               {t.nav.portfolio}
             </h1>
-            <p className="text-xl lg:text-2xl text-white/90 animate-fade-in">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 animate-fade-in px-2">
               Showcasing our innovative solutions and successful project deliveries
             </p>
           </div>
@@ -35,9 +35,9 @@ export default function Portfolio() {
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-8 border-b border-border">
+      <section className="py-4 sm:py-6 lg:py-8 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -45,7 +45,7 @@ export default function Portfolio() {
                   // Filter functionality - you can implement this later
                   console.log(`Filter by: ${category}`);
                 }}
-                className="rounded-full px-6 bg-white/90 text-foreground hover:bg-white hover:text-tech-blue hover:border hover:border-tech-blue/30 hover:shadow-lg hover:shadow-tech-blue/10 hover:scale-105 transition-all duration-300 font-medium"
+                className="rounded-full px-3 sm:px-4 lg:px-6 bg-white/90 text-foreground hover:bg-white hover:text-tech-blue hover:border hover:border-tech-blue/30 hover:shadow-lg hover:shadow-tech-blue/10 hover:scale-105 transition-all duration-300 font-medium text-xs sm:text-sm"
               >
                 {category}
               </Button>
@@ -156,7 +156,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {projects.length > 0 ? (
               projects.map((project) => (
               <Card key={project.id} className="bg-background border shadow-sm hover-lift overflow-hidden group">
