@@ -6,9 +6,11 @@ import { COMPANY } from '@/config/company';
 import { useLanguage } from '@/hooks/useLanguage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const serviceIcons = {
     'Web Development': Monitor,
@@ -78,6 +80,12 @@ export default function Services() {
                     </div>
                     <Button 
                       variant="ghost" 
+                      onClick={() => {
+                        // You can implement service details functionality here
+                        console.log(`Learn more about: ${service.name}`);
+                        // For now, just show an alert
+                        alert(`Learn more about ${service.name} - This would show detailed service information`);
+                      }}
                       className="w-full justify-between group-hover:bg-muted transition-smooth"
                     >
                       {t.common.learn_more}
@@ -193,9 +201,10 @@ export default function Services() {
           </p>
           <Button 
             size="lg" 
+            onClick={() => navigate('/contact')}
             className="bg-white text-tech-dark hover:bg-white/90 hover:shadow-glow transition-smooth px-8 py-4 text-lg font-semibold"
           >
-            {t.common.get_started}
+            {t.common.contact_us}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>

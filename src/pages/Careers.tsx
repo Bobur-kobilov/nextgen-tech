@@ -5,78 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/hooks/useLanguage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { JOB_OPENINGS_DATA, EMPTY_STATES } from '@/constants/data';
+import { useNavigate } from 'react-router-dom';
 
 export default function Careers() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
-  const jobOpenings = [
-    {
-      id: 1,
-      title: "Senior Full Stack Developer",
-      department: "Engineering",
-      location: "Seoul, Korea",
-      type: "Full-time",
-      level: "Senior",
-      description: "We're looking for a senior full stack developer to join our dynamic team and work on cutting-edge projects.",
-      requirements: ["React", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
-      urgent: true
-    },
-    {
-      id: 2,
-      title: "Mobile App Developer",
-      department: "Engineering", 
-      location: "Warsaw, Poland",
-      type: "Full-time",
-      level: "Mid-level",
-      description: "Join our mobile team to create innovative iOS and Android applications for our global clients.",
-      requirements: ["React Native", "Flutter", "iOS", "Android", "Firebase"],
-      urgent: false
-    },
-    {
-      id: 3,
-      title: "UI/UX Designer",
-      department: "Design",
-      location: "Tashkent, Uzbekistan",
-      type: "Full-time", 
-      level: "Mid-level",
-      description: "Create beautiful and intuitive user experiences for our web and mobile applications.",
-      requirements: ["Figma", "Adobe XD", "Prototyping", "User Research", "Design Systems"],
-      urgent: false
-    },
-    {
-      id: 4,
-      title: "DevOps Engineer",
-      department: "Infrastructure",
-      location: "Remote",
-      type: "Full-time",
-      level: "Senior",
-      description: "Help us scale our infrastructure and improve our deployment processes across all projects.",
-      requirements: ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform"],
-      urgent: true
-    },
-    {
-      id: 5,
-      title: "Project Manager",
-      department: "Operations",
-      location: "Seoul, Korea",
-      type: "Full-time",
-      level: "Senior",
-      description: "Lead cross-functional teams to deliver high-quality projects on time and within budget.",
-      requirements: ["Agile", "Scrum", "Project Management", "Leadership", "Communication"],
-      urgent: false
-    },
-    {
-      id: 6,
-      title: "Business Analyst",
-      department: "Strategy",
-      location: "Warsaw, Poland", 
-      type: "Full-time",
-      level: "Mid-level",
-      description: "Analyze business requirements and translate them into technical specifications for our development teams.",
-      requirements: ["Business Analysis", "Requirements Gathering", "SQL", "Data Analysis", "Documentation"],
-      urgent: false
-    }
-  ];
+  // Use data from constants - you can easily toggle this to show empty state
+  const jobOpenings = JOB_OPENINGS_DATA; // Change to [] to test empty state
 
   const benefits = [
     {
@@ -216,7 +153,15 @@ export default function Careers() {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-gradient-hero hover:shadow-glow transition-smooth group">
+                    <Button 
+                      onClick={() => {
+                        // You can implement job application functionality here
+                        console.log(`Apply for: ${job.title}`);
+                        // For now, just show an alert
+                        alert(`Application for ${job.title} - This would open an application form or redirect to application page`);
+                      }}
+                      className="w-full bg-gradient-hero hover:shadow-glow transition-smooth group"
+                    >
                       Apply Now
                       <Send className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </Button>
@@ -285,6 +230,7 @@ export default function Careers() {
           </p>
           <Button 
             size="lg" 
+            onClick={() => navigate('/contact')}
             className="bg-white text-tech-dark hover:bg-white/90 hover:shadow-glow transition-smooth px-8 py-4 text-lg font-semibold"
           >
             Send Your Resume

@@ -170,31 +170,31 @@ export default function About() {
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-tech-blue mb-2">
                 {new Date().getFullYear() - COMPANY.stats.foundedYear}+
               </div>
               <div className="text-muted-foreground font-medium">{t.stats.years_experience}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-tech-blue mb-2">
                 {COMPANY.stats.projectsCompleted}+
               </div>
               <div className="text-muted-foreground font-medium">{t.stats.projects_completed}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-tech-blue mb-2">
                 {COMPANY.stats.clientsSatisfied}+
               </div>
               <div className="text-muted-foreground font-medium">{t.stats.satisfied_clients}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-tech-blue mb-2">
                 {COMPANY.stats.teamMembers}+
               </div>
               <div className="text-muted-foreground font-medium">{t.stats.team_members}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-tech-blue mb-2">
                 {COMPANY.stats.countriesServed}+
               </div>
               <div className="text-muted-foreground font-medium">{t.stats.countries_served}</div>

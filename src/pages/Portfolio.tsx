@@ -1,73 +1,20 @@
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Folder } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/hooks/useLanguage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { PROJECTS_DATA, FILTER_CATEGORIES, EMPTY_STATES } from '@/constants/data';
+import { useNavigate } from 'react-router-dom';
 
 export default function Portfolio() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
-  // Placeholder project data
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "A comprehensive e-commerce solution with advanced features and analytics",
-      category: "Web Development",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Mobile Banking App",
-      description: "Secure and intuitive mobile banking application with biometric authentication",
-      category: "FinTech",
-      technologies: ["React Native", "Python", "AWS", "Blockchain"],
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Learning Management System",
-      description: "Comprehensive LMS platform for educational institutions",
-      category: "EdTech",
-      technologies: ["Vue.js", "Laravel", "MySQL", "Docker"],
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "CRM Dashboard",
-      description: "Advanced customer relationship management system with analytics",
-      category: "CRM",
-      technologies: ["Angular", "C#", "SQL Server", "Azure"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "ERP Solution",
-      description: "Enterprise resource planning system for manufacturing companies",
-      category: "ERP",
-      technologies: ["React", "Java", "Oracle", "Kubernetes"],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Food Delivery App",
-      description: "Real-time food delivery mobile application with GPS tracking",
-      category: "Mobile Apps",
-      technologies: ["Flutter", "Firebase", "Google Maps", "Payment Gateway"],
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&q=80",
-      featured: false
-    }
-  ];
-
-  const categories = ["All", "Web Development", "Mobile Apps", "FinTech", "EdTech", "CRM", "ERP"];
+  // Use data from constants
+  const projects = PROJECTS_DATA;
+  const categories = FILTER_CATEGORIES.projects;
 
   return (
     <div className="min-h-screen bg-background">
@@ -94,8 +41,11 @@ export default function Portfolio() {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant="ghost"
-                className="rounded-full px-6 hover:bg-muted"
+                onClick={() => {
+                  // Filter functionality - you can implement this later
+                  console.log(`Filter by: ${category}`);
+                }}
+                className="rounded-full px-6 bg-white/90 text-foreground hover:bg-white hover:text-tech-blue hover:border hover:border-tech-blue/30 hover:shadow-lg hover:shadow-tech-blue/10 hover:scale-105 transition-all duration-300 font-medium"
               >
                 {category}
               </Button>
@@ -117,9 +67,10 @@ export default function Portfolio() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {projects
-              .filter(project => project.featured)
-              .map((project) => (
+            {projects.filter(project => project.featured).length > 0 ? (
+              projects
+                .filter(project => project.featured)
+                .map((project) => (
                 <Card key={project.id} className="bg-gradient-card border-0 shadow-tech hover-lift overflow-hidden group">
                   <div className="aspect-video overflow-hidden">
                     <img 
@@ -152,18 +103,41 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="flex gap-2">
-                      <Button size="sm" className="bg-gradient-hero hover:shadow-glow transition-smooth">
+                      <Button 
+                        size="sm" 
+                        onClick={() => window.open('#', '_blank')}
+                        className="bg-gradient-hero hover:shadow-glow transition-smooth"
+                      >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         View Live
                       </Button>
-                      <Button size="sm" variant="outline">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => window.open('#', '_blank')}
+                      >
                         <Github className="w-4 h-4 mr-2" />
                         Source
                       </Button>
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+                ))
+            ) : (
+              <div className="col-span-2 flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-20 h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-6">
+                  <Folder className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{EMPTY_STATES.noProjects.title}</h3>
+                <p className="text-muted-foreground text-lg mb-6 max-w-md">{EMPTY_STATES.noProjects.message}</p>
+                <Button 
+                  onClick={() => navigate('/contact')}
+                  className="bg-gradient-accent hover:shadow-glow transition-smooth"
+                >
+                  {EMPTY_STATES.noProjects.action}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -217,6 +191,10 @@ export default function Portfolio() {
                   <Button 
                     variant="ghost" 
                     size="sm" 
+                    onClick={() => {
+                      // You can implement project details modal/page here
+                      console.log(`View details for: ${project.title}`);
+                    }}
                     className="w-full justify-between group-hover:bg-muted transition-smooth"
                   >
                     View Details
@@ -240,9 +218,10 @@ export default function Portfolio() {
           </p>
           <Button 
             size="lg" 
+            onClick={() => navigate('/contact')}
             className="bg-white text-tech-dark hover:bg-white/90 hover:shadow-glow transition-smooth px-8 py-4 text-lg font-semibold"
           >
-            {t.common.get_started}
+            {t.common.contact_us}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>

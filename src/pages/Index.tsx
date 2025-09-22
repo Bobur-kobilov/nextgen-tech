@@ -7,9 +7,11 @@ import { useLanguage } from '@/hooks/useLanguage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
+import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const serviceIcons = {
     'Web Development': Monitor,
@@ -50,7 +52,7 @@ const Index = () => {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+            <h2 className="text-3xl lg:text-4xl font-display font-black text-foreground mb-4 animate-fade-in">
               {t.services.title}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in">
@@ -64,10 +66,10 @@ const Index = () => {
               return (
                 <Card key={service.name} className="bg-gradient-card border-0 shadow-tech hover-lift group animate-fade-in-scale">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-gradient-hero rounded-lg flex items-center justify-center mb-4 group-hover:shadow-glow transition-smooth">
+                    <div className="w-16 h-16 bg-gradient-accent rounded-lg flex items-center justify-center mb-4 group-hover:shadow-glow transition-smooth">
                       {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
                     </div>
-                    <CardTitle className="text-xl font-bold text-foreground">
+                    <CardTitle className="text-xl font-display font-semibold text-foreground">
                       {service.name}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
@@ -94,7 +96,10 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button className="bg-gradient-hero hover:shadow-glow transition-smooth">
+            <Button 
+              onClick={() => navigate('/services')}
+              className="bg-gradient-accent hover:shadow-glow transition-smooth text-white font-semibold"
+            >
               {t.common.view_all} Services
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -106,7 +111,7 @@ const Index = () => {
       <section className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl lg:text-4xl font-display font-black text-foreground mb-4">
               What Our Clients Say
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -142,7 +147,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-3xl lg:text-4xl font-display font-black text-foreground mb-6">
                 Why Choose NextGen Tech?
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
@@ -166,8 +171,11 @@ const Index = () => {
               </div>
               
               <div className="mt-8">
-                <Button className="bg-gradient-hero hover:shadow-glow transition-smooth">
-                  {t.common.get_started}
+                <Button 
+                  onClick={() => navigate('/contact')}
+                  className="bg-gradient-accent hover:shadow-glow transition-smooth text-white font-semibold"
+                >
+                  {t.common.contact_us}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
@@ -176,7 +184,7 @@ const Index = () => {
             <div className="grid grid-cols-2 gap-6">
               <Card className="bg-gradient-card border-0 shadow-tech hover-lift text-center">
                 <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-gradient mb-2">
+                  <div className="text-3xl font-bold text-tech-blue mb-2">
                     {COMPANY.stats.projectsCompleted}+
                   </div>
                   <div className="text-sm text-muted-foreground">Projects Completed</div>
@@ -185,7 +193,7 @@ const Index = () => {
               
               <Card className="bg-gradient-card border-0 shadow-tech hover-lift text-center">
                 <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-gradient mb-2">
+                  <div className="text-3xl font-bold text-tech-blue mb-2">
                     {COMPANY.stats.clientsSatisfied}+
                   </div>
                   <div className="text-sm text-muted-foreground">Happy Clients</div>
@@ -194,7 +202,7 @@ const Index = () => {
               
               <Card className="bg-gradient-card border-0 shadow-tech hover-lift text-center">
                 <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-gradient mb-2">
+                  <div className="text-3xl font-bold text-tech-blue mb-2">
                     {COMPANY.stats.teamMembers}+
                   </div>
                   <div className="text-sm text-muted-foreground">Team Members</div>
@@ -203,7 +211,7 @@ const Index = () => {
               
               <Card className="bg-gradient-card border-0 shadow-tech hover-lift text-center">
                 <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-gradient mb-2">
+                  <div className="text-3xl font-bold text-tech-blue mb-2">
                     {COMPANY.stats.countriesServed}+
                   </div>
                   <div className="text-sm text-muted-foreground">Countries Served</div>
@@ -217,7 +225,7 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-gradient-hero text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-4xl font-display font-black mb-6">
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -226,15 +234,16 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg" 
-              className="bg-white text-tech-dark hover:bg-white/90 hover:shadow-glow transition-smooth px-8 py-4 text-lg font-semibold"
+              onClick={() => navigate('/contact')}
+              className="bg-white text-tech-dark hover:bg-gradient-to-r hover:from-tech-blue hover:to-tech-purple hover:text-white hover:shadow-lg hover:shadow-tech-blue/25 hover:scale-105 transition-all duration-300 group px-8 py-4 text-lg font-semibold"
             >
-              {t.common.get_started}
-              <ArrowRight className="ml-2 w-5 h-5" />
+              {t.common.contact_us}
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-white/30 text-white hover:bg-white/10 hover:border-white transition-smooth px-8 py-4 text-lg"
+              onClick={() => navigate('/portfolio')}
+              className="border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/60 hover:text-white hover:shadow-lg hover:shadow-white/10 hover:scale-105 transition-all duration-300 group px-8 py-4 text-lg bg-transparent font-display font-medium"
             >
               {t.nav.portfolio}
             </Button>

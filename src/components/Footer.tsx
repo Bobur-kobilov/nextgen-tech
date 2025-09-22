@@ -83,9 +83,9 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-6">{t.contact.office_locations}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {COMPANY.offices.map((office) => (
-              <div key={office.city} className="bg-white/10 rounded-lg p-4 hover-glow transition-smooth">
+              <div key={office.city} className="bg-white/10 rounded-lg p-4 hover:bg-white/20 hover:shadow-lg hover:shadow-white/10 hover:scale-105 transition-all duration-300">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-tech-cyan mt-1 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 text-tech-blue mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-medium text-white mb-1">
                       {office.city}, {office.country}
