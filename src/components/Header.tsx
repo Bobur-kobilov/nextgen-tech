@@ -16,9 +16,13 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    
+    // Check initial scroll position when component mounts or location changes
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]); // Re-run when route changes
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -65,8 +69,8 @@ export default function Header() {
                   isActive(item.path)
                     ? 'text-tech-blue'
                     : isScrolled 
-                      ? 'text-gray-700 hover:text-gray-900' 
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-gray-900 hover:text-tech-blue' 
+                      : 'text-white hover:text-white/80'
                 }`}
               >
                 {item.label}
@@ -92,7 +96,7 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`lg:hidden p-2 transition-smooth ${
               isScrolled 
-                ? 'text-gray-700 hover:text-tech-blue' 
+                ? 'text-gray-900 hover:text-tech-blue' 
                 : 'text-white hover:text-tech-blue'
             }`}
           >
