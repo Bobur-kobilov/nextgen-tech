@@ -194,78 +194,77 @@ export default function Team() {
           </div>
         </section>
 
-        {/* Team Carousel Section */}
+        {/* Team Masonry Section */}
         <section className="py-8 sm:py-12 lg:py-16 xl:py-24 bg-gradient-to-br from-background via-background to-muted/20">
           <div className="container mx-auto px-4">
             {filteredTeam.length > 0 ? (
-              <div className="relative max-w-6xl mx-auto">
-                {/* Main Card Display */}
-                <div className="relative h-[500px] sm:h-[600px] overflow-hidden rounded-xl sm:rounded-2xl">
-                  <div 
-                    className="flex transition-transform duration-700 ease-in-out h-full"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                  >
-                    {filteredTeam.map((member, index) => (
-                      <div key={member.id} className="w-full flex-shrink-0 px-2 sm:px-4">
-                        <Card className="h-full bg-gradient-card border-0 shadow-tech hover-lift overflow-hidden">
-                          <CardContent className="p-0 h-full flex flex-col lg:flex-row">
+              <div className="max-w-6xl mx-auto">
+                {/* Masonry Flex Layout */}
+                <div className="flex flex-col items-center gap-8 sm:gap-12 max-w-5xl mx-auto">
+                  {/* First Row - 3 members */}
+                  <div className="flex justify-center gap-6 sm:gap-8">
+                    {filteredTeam.slice(0, 3).map((member) => (
+                      <Card key={member.id} className="group bg-gradient-card border-0 shadow-tech hover-lift overflow-hidden w-80 sm:w-96">
+                        <CardContent className="p-0">
+                          <div className="flex flex-col h-full">
                             {/* Image Section */}
-                            <div className="lg:w-1/2 relative overflow-hidden">
-                              <div className="h-48 sm:h-64 lg:h-full bg-gradient-to-br from-tech-blue/20 to-tech-purple/20 flex items-center justify-center">
-                                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-gradient-accent rounded-full flex items-center justify-center text-white text-2xl sm:text-4xl lg:text-6xl font-bold">
+                            <div className="relative overflow-hidden">
+                              <div className="h-48 sm:h-56 bg-gradient-to-br from-tech-blue/20 to-tech-purple/20 flex items-center justify-center">
+                                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-accent rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold">
                                   {member.name.split(' ').map(n => n[0]).join('')}
                                 </div>
                               </div>
-                              {/* Floating Elements */}
-                              <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
-                                <Badge className={`${getLevelColor(member.level)} border-0 shadow-lg text-xs sm:text-sm px-2 py-1`}>
+                              {/* Level Badge */}
+                              <div className="absolute top-3 right-3">
+                                <Badge className={`${getLevelColor(member.level)} border-0 shadow-lg text-xs px-2 py-1`}>
                                   {member.level}
                                 </Badge>
                               </div>
-                              <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">
-                                <Badge className={`${getDepartmentColor(member.department)} border text-xs sm:text-sm px-2 py-1`}>
+                              {/* Department Badge */}
+                              <div className="absolute bottom-3 left-3">
+                                <Badge className={`${getDepartmentColor(member.department)} border text-xs px-2 py-1`}>
                                   {member.department}
                                 </Badge>
                               </div>
                             </div>
 
                             {/* Content Section */}
-                            <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
-                              <div className="mb-4 sm:mb-6">
-                                <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-display font-bold text-foreground mb-1 sm:mb-2">
+                            <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                              <div className="mb-4 flex-1">
+                                <h3 className="text-lg sm:text-xl font-display font-bold text-foreground mb-1">
                                   {member.name}
                                 </h3>
-                                <p className="text-base sm:text-lg lg:text-xl text-tech-blue font-semibold mb-2 sm:mb-4">
+                                <p className="text-sm sm:text-base text-tech-blue font-semibold mb-2">
                                   {member.position}
                                 </p>
-                                <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
+                                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3">
                                   {member.bio}
                                 </p>
                               </div>
 
                               {/* Experience & Location */}
-                              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 mb-4 sm:mb-6">
+                              <div className="flex flex-col gap-2 mb-4">
                                 <div className="flex items-center gap-2 text-muted-foreground">
-                                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
-                                  <span className="text-xs sm:text-sm font-medium">{member.experience}</span>
+                                  <Calendar className="w-3 h-3" />
+                                  <span className="text-xs font-medium">{member.experience}</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-muted-foreground">
-                                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
-                                  <span className="text-xs sm:text-sm font-medium">{member.location}</span>
+                                  <MapPin className="w-3 h-3" />
+                                  <span className="text-xs font-medium">{member.location}</span>
                                 </div>
                               </div>
 
                               {/* Skills */}
-                              <div className="mb-6 sm:mb-8">
-                                <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-2 sm:mb-3 uppercase tracking-wide">
+                              <div className="mb-4">
+                                <h4 className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
                                   Key Skills
                                 </h4>
-                                <div className="flex flex-wrap gap-1 sm:gap-2">
-                                  {member.skills.map((skill, skillIndex) => (
+                                <div className="flex flex-wrap gap-1">
+                                  {member.skills.slice(0, 3).map((skill, skillIndex) => (
                                     <Badge 
                                       key={skillIndex}
                                       variant="outline" 
-                                      className="bg-white/50 text-foreground border-border hover:bg-tech-blue/10 hover:text-tech-blue hover:border-tech-blue/30 transition-all duration-300 text-xs sm:text-sm px-2 py-1"
+                                      className="bg-white/50 text-foreground border-border hover:bg-tech-blue/10 hover:text-tech-blue hover:border-tech-blue/30 transition-all duration-300 text-xs px-2 py-1"
                                     >
                                       {skill}
                                     </Badge>
@@ -275,60 +274,107 @@ export default function Team() {
 
                               {/* Action Button */}
                               <Button 
-                                className="bg-gradient-accent hover:shadow-glow transition-smooth group w-fit text-sm sm:text-base px-4 py-2"
+                                className="w-full bg-gradient-accent hover:shadow-glow transition-smooth group text-sm px-4 py-2"
                                 onClick={() => console.log(`View profile: ${member.name}`)}
                               >
                                 View Profile
-                                <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
+                                <ArrowRight className="ml-2 w-3 h-3 transition-transform group-hover:translate-x-1" />
                               </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+
+                  {/* Second Row - 2 members positioned in gaps (masonry style) */}
+                  {filteredTeam.length > 3 && (
+                    <div className="flex justify-center gap-6 sm:gap-8" style={{marginLeft: 'calc(50% - 25%)'}}>
+                      {filteredTeam.slice(3, 5).map((member) => (
+                        <Card key={member.id} className="group bg-gradient-card border-0 shadow-tech hover-lift overflow-hidden w-80 sm:w-96">
+                          <CardContent className="p-0">
+                            <div className="flex flex-col h-full">
+                              {/* Image Section */}
+                              <div className="relative overflow-hidden">
+                                <div className="h-48 sm:h-56 bg-gradient-to-br from-tech-blue/20 to-tech-purple/20 flex items-center justify-center">
+                                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-accent rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold">
+                                    {member.name.split(' ').map(n => n[0]).join('')}
+                                  </div>
+                                </div>
+                                {/* Level Badge */}
+                                <div className="absolute top-3 right-3">
+                                  <Badge className={`${getLevelColor(member.level)} border-0 shadow-lg text-xs px-2 py-1`}>
+                                    {member.level}
+                                  </Badge>
+                                </div>
+                                {/* Department Badge */}
+                                <div className="absolute bottom-3 left-3">
+                                  <Badge className={`${getDepartmentColor(member.department)} border text-xs px-2 py-1`}>
+                                    {member.department}
+                                  </Badge>
+                                </div>
+                              </div>
+
+                              {/* Content Section */}
+                              <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                                <div className="mb-4 flex-1">
+                                  <h3 className="text-lg sm:text-xl font-display font-bold text-foreground mb-1">
+                                    {member.name}
+                                  </h3>
+                                  <p className="text-sm sm:text-base text-tech-blue font-semibold mb-2">
+                                    {member.position}
+                                  </p>
+                                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                    {member.bio}
+                                  </p>
+                                </div>
+
+                                {/* Experience & Location */}
+                                <div className="flex flex-col gap-2 mb-4">
+                                  <div className="flex items-center gap-2 text-muted-foreground">
+                                    <Calendar className="w-3 h-3" />
+                                    <span className="text-xs font-medium">{member.experience}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-muted-foreground">
+                                    <MapPin className="w-3 h-3" />
+                                    <span className="text-xs font-medium">{member.location}</span>
+                                  </div>
+                                </div>
+
+                                {/* Skills */}
+                                <div className="mb-4">
+                                  <h4 className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
+                                    Key Skills
+                                  </h4>
+                                  <div className="flex flex-wrap gap-1">
+                                    {member.skills.slice(0, 3).map((skill, skillIndex) => (
+                                      <Badge 
+                                        key={skillIndex}
+                                        variant="outline" 
+                                        className="bg-white/50 text-foreground border-border hover:bg-tech-blue/10 hover:text-tech-blue hover:border-tech-blue/30 transition-all duration-300 text-xs px-2 py-1"
+                                      >
+                                        {skill}
+                                      </Badge>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Action Button */}
+                                <Button 
+                                  className="w-full bg-gradient-accent hover:shadow-glow transition-smooth group text-sm px-4 py-2"
+                                  onClick={() => console.log(`View profile: ${member.name}`)}
+                                >
+                                  View Profile
+                                  <ArrowRight className="ml-2 w-3 h-3 transition-transform group-hover:translate-x-1" />
+                                </Button>
+                              </div>
                             </div>
                           </CardContent>
                         </Card>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-
-                {/* Navigation Controls */}
-                <div className="flex items-center justify-between mt-4 sm:mt-6 lg:mt-8">
-                  {/* Previous Button */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={prevSlide}
-                    disabled={filteredTeam.length <= 1}
-                    className="bg-white/80 hover:bg-white hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm px-3 sm:px-4 py-2"
-                  >
-                    ← Previous
-                  </Button>
-
-                  {/* Dots Indicator */}
-                  <div className="flex items-center gap-1 sm:gap-2">
-                    {filteredTeam.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => goToSlide(index)}
-                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                          index === currentIndex
-                            ? 'bg-tech-blue scale-125'
-                            : 'bg-gray-300 hover:bg-gray-400'
-                        }`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Next Button */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={nextSlide}
-                    disabled={filteredTeam.length <= 1}
-                    className="bg-white/80 hover:bg-white hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm px-3 sm:px-4 py-2"
-                  >
-                    Next →
-                  </Button>
-                </div>
-
               </div>
             ) : (
               <div className="text-center py-16">
