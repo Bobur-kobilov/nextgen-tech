@@ -60,10 +60,10 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         tech: {
-          blue: "hsl(var(--tech-blue))",
-          cyan: "hsl(var(--tech-cyan))",
-          dark: "hsl(var(--tech-dark))",
-          glow: "hsl(var(--tech-glow))",
+          blue: "hsl(215, 28%, 17%)",
+          accent: "hsl(215, 20%, 65%)",
+          dark: "hsl(215, 30%, 12%)",
+          light: "hsl(215, 25%, 88%)",
         },
       },
       borderRadius: {

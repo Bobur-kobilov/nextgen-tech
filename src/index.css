@@ -8,56 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Enterprise tech theme - inspired by SotaTek */
+    /* Professional muted theme - toned down colors */
     --background: 0 0% 100%;
-    --foreground: 220 26% 14%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 26% 14%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 26% 14%;
+    --popover-foreground: 215 25% 27%;
 
-    /* Primary: Deep tech blue */
-    --primary: 221 83% 53%;
+    /* Primary: Muted professional blue */
+    --primary: 215 28% 17%;
     --primary-foreground: 0 0% 100%;
     
-    /* Primary variations for gradients */
-    --primary-dark: 221 83% 28%;
-    --primary-light: 190 100% 70%;
+    /* Muted variations for gradients */
+    --primary-dark: 215 30% 12%;
+    --primary-light: 215 25% 35%;
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 220 26% 14%;
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 210 17% 95%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 190 100% 70%;
-    --accent-foreground: 220 26% 14%;
+    --accent: 215 20% 65%;
+    --accent-foreground: 215 25% 27%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 65% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --border: 215 12% 87%;
+    --input: 215 12% 87%;
+    --ring: 215 28% 17%;
 
-    /* Custom tech theme colors */
-    --tech-blue: 221 83% 53%;
-    --tech-cyan: 190 100% 70%;
-    --tech-dark: 221 83% 28%;
-    --tech-glow: 190 100% 80%;
+    /* Muted tech theme colors */
+    --tech-blue: 215 28% 17%;
+    --tech-accent: 215 20% 65%;
+    --tech-dark: 215 30% 12%;
+    --tech-light: 215 25% 88%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--tech-dark)), hsl(var(--tech-blue)), hsl(var(--tech-cyan)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-    --gradient-text: linear-gradient(90deg, hsl(var(--tech-blue)), hsl(var(--tech-cyan)));
+    /* Subtle gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215, 30%, 12%), hsl(215, 28%, 17%), hsl(215, 25%, 35%));
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 17%, 98%) 100%);
+    --gradient-text: linear-gradient(90deg, hsl(215, 28%, 17%), hsl(215, 20%, 65%));
     
-    /* Shadows */
-    --shadow-tech: 0 20px 40px -12px hsl(var(--tech-blue) / 0.25);
-    --shadow-glow: 0 0 40px hsl(var(--tech-glow) / 0.3);
+    /* Subtle shadows */
+    --shadow-tech: 0 4px 20px -8px hsl(215, 28%, 17%, 0.15);
+    --shadow-glow: 0 0 20px hsl(215, 20%, 65%, 0.2);
     
-    /* Animations */
+    /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -81,47 +81,47 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 26% 8%;
-    --foreground: 0 0% 98%;
+    --background: 215 28% 9%;
+    --foreground: 0 0% 95%;
 
-    --card: 220 26% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 215 28% 11%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 220 26% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 215 28% 11%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 190 100% 70%;
-    --primary-foreground: 220 26% 8%;
+    --primary: 215 20% 75%;
+    --primary-foreground: 215 28% 9%;
     
-    --primary-dark: 221 83% 15%;
-    --primary-light: 190 100% 80%;
+    --primary-dark: 215 28% 9%;
+    --primary-light: 215 20% 85%;
 
-    --secondary: 220 26% 14%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 215 25% 16%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 26% 14%;
-    --muted-foreground: 220 10% 65%;
+    --muted: 215 25% 16%;
+    --muted-foreground: 215 15% 65%;
 
-    --accent: 221 83% 53%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 215 20% 65%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 220 26% 18%;
-    --input: 220 26% 18%;
-    --ring: 190 100% 70%;
+    --border: 215 25% 18%;
+    --input: 215 25% 18%;
+    --ring: 215 20% 75%;
     
-    /* Dark theme tech colors */
-    --tech-blue: 221 83% 53%;
-    --tech-cyan: 190 100% 70%;
-    --tech-dark: 220 26% 8%;
-    --tech-glow: 190 100% 60%;
+    /* Dark theme muted colors */
+    --tech-blue: 215 20% 75%;
+    --tech-accent: 215 20% 65%;
+    --tech-dark: 215 28% 9%;
+    --tech-light: 215 25% 20%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(var(--tech-dark)), hsl(var(--tech-blue)), hsl(var(--tech-cyan)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%);
-    --shadow-tech: 0 20px 40px -12px hsl(var(--tech-blue) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--tech-glow) / 0.2);
+    --gradient-hero: linear-gradient(135deg, hsl(215, 28%, 9%), hsl(215, 25%, 16%), hsl(215, 20%, 25%));
+    --gradient-card: linear-gradient(145deg, hsl(215, 28%, 11%) 0%, hsl(215, 25%, 16%) 100%);
+    --shadow-tech: 0 4px 20px -8px hsl(215, 20%, 75%, 0.2);
+    --shadow-glow: 0 0 20px hsl(215, 20%, 65%, 0.15);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -149,7 +149,7 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Tech gradient backgrounds */
+  /* Muted gradient backgrounds */
   .bg-gradient-hero {
     background: var(--gradient-hero);
   }
@@ -158,7 +158,7 @@ All colors MUST be HSL.
     background: var(--gradient-card);
   }
   
-  /* Text gradients */
+  /* Subtle text gradients */
   .text-gradient {
     background: var(--gradient-text);
     -webkit-background-clip: text;
@@ -166,7 +166,7 @@ All colors MUST be HSL.
     background-clip: text;
   }
   
-  /* Tech shadows */
+  /* Subtle shadows */
   .shadow-tech {
     box-shadow: var(--shadow-tech);
   }
@@ -184,20 +184,20 @@ All colors MUST be HSL.
     transition: var(--transition-bounce);
   }
   
-  /* Animated background patterns */
+  /* Subtle background patterns */
   .bg-tech-pattern {
     background-image: 
-      radial-gradient(circle at 1px 1px, hsl(var(--tech-cyan) / 0.15) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, hsl(215, 20%, 65%, 0.08) 1px, transparent 0);
     background-size: 40px 40px;
     animation: float 20s ease-in-out infinite;
   }
   
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); }
   }
   
-  /* Hover effects */
+  /* Subtle hover effects */
   .hover-lift {
     @apply transition-smooth hover:transform hover:-translate-y-1 hover:shadow-tech;
   }
