@@ -325,25 +325,25 @@ export const BLOG_POSTS_DATA = [
 export const TEAM_DATA = [
   {
     id: 1,
-    name: "Alex Chen",
-    position: "Senior Frontend Developer",
+    name: "Azam Abdusalomov",
+    position: "Senior Backend Developer",
     level: "Senior",
     department: "Engineering",
     image: "/api/placeholder/300/300",
-    bio: "Expert in React, TypeScript, and modern web technologies. Passionate about creating intuitive user experiences.",
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    bio: "Expert in backend development, cloud solutions, and database management. Passionate about creating scalable and efficient systems.",
+    skills: ["Node.js", "TypeScript", "Nest.js", "PostgreSQL", "Docker", "Prisma ORM"],
     experience: "5+ years",
-    location: "Seoul, Korea"
+    location: "Tashkent, Uzbekistan"
   },
   {
     id: 2,
-    name: "Sarah Johnson",
+    name: "Bobur Kobilov",
     position: "Lead Backend Developer",
     level: "Lead",
     department: "Engineering",
     image: "/api/placeholder/300/300",
     bio: "Specializes in scalable backend architectures and cloud solutions. Expert in Node.js and Python.",
-    skills: ["Node.js", "Python", "AWS", "PostgreSQL"],
+    skills: ["Node.js", "Nest.js", "Docker", "PostgreSQL", "Prisma ORM"],
     experience: "7+ years",
     location: "Tashkent, Uzbekistan"
   },
