@@ -7,6 +7,7 @@ export interface Translations {
     about: string;
     services: string;
     portfolio: string;
+    team: string;
     careers: string;
     contact: string;
   };
@@ -107,6 +108,7 @@ export const translations: Record<Language, Translations> = {
       about: "About",
       services: "Services", 
       portfolio: "Portfolio",
+      team: "Team",
       careers: "Careers",
       contact: "Contact"
     },
@@ -188,7 +190,8 @@ export const translations: Record<Language, Translations> = {
       home: "홈",
       about: "회사소개",
       services: "서비스",
-      portfolio: "포트폴리오", 
+      portfolio: "포트폴리오",
+      team: "팀",
       careers: "채용",
       contact: "연락처"
     },
@@ -271,6 +274,7 @@ export const translations: Record<Language, Translations> = {
       about: "Biz haqimizda", 
       services: "Xizmatlar",
       portfolio: "Portfolio",
+      team: "Jamoa",
       careers: "Ish o'rinlari",
       contact: "Aloqa"
     },
@@ -353,6 +357,7 @@ export const translations: Record<Language, Translations> = {
       about: "O nas",
       services: "Usługi",
       portfolio: "Portfolio",
+      team: "Zespół",
       careers: "Kariera", 
       contact: "Kontakt"
     },

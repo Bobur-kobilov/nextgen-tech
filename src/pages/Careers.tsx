@@ -13,7 +13,7 @@ export default function Careers() {
   const navigate = useNavigate();
 
   // Use data from constants - you can easily toggle this to show empty state
-  const jobOpenings = JOB_OPENINGS_DATA; // Change to [] to test empty state
+  const jobOpenings: typeof JOB_OPENINGS_DATA = JOB_OPENINGS_DATA; // Change to [] to test empty state
 
   const benefits = [
     {
@@ -102,7 +102,8 @@ export default function Careers() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {jobOpenings.map((job) => (
+            {jobOpenings.length > 0 ? (
+              jobOpenings.map((job) => (
               <Card key={job.id} className="bg-background border shadow-sm hover-lift">
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -168,7 +169,22 @@ export default function Careers() {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+              ))
+            ) : (
+              <div className="col-span-2 flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-20 h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-6">
+                  <Briefcase className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{EMPTY_STATES.noJobs.title}</h3>
+                <p className="text-muted-foreground text-lg mb-6 max-w-md">{EMPTY_STATES.noJobs.message}</p>
+                <Button 
+                  onClick={() => navigate('/contact')}
+                  className="bg-gradient-accent hover:shadow-glow transition-smooth"
+                >
+                  {EMPTY_STATES.noJobs.action}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>

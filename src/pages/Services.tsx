@@ -58,8 +58,8 @@ export default function Services() {
             {COMPANY.services.map((service, index) => {
               const IconComponent = serviceIcons[service.name as keyof typeof serviceIcons];
               return (
-                <Card key={service.name} className="bg-gradient-card border-0 shadow-tech hover-lift group">
-                  <CardHeader>
+                <Card key={service.name} className="bg-gradient-card border-0 shadow-tech hover-lift group h-full flex flex-col">
+                  <CardHeader className="flex-grow">
                     <div className="w-16 h-16 bg-gradient-hero rounded-lg flex items-center justify-center mb-4 group-hover:shadow-glow transition-smooth">
                       {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
                     </div>
@@ -70,8 +70,8 @@ export default function Services() {
                       {getServiceDescription(service.name)}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2 mb-6">
+                  <CardContent className="flex flex-col flex-grow">
+                    <div className="flex flex-wrap gap-2 mb-6 flex-grow">
                       {service.technologies.map((tech) => (
                         <Badge key={tech} variant="secondary" className="text-xs">
                           {tech}
@@ -79,14 +79,13 @@ export default function Services() {
                       ))}
                     </div>
                     <Button 
-                      variant="ghost" 
                       onClick={() => {
                         // You can implement service details functionality here
                         console.log(`Learn more about: ${service.name}`);
                         // For now, just show an alert
                         alert(`Learn more about ${service.name} - This would show detailed service information`);
                       }}
-                      className="w-full justify-between group-hover:bg-muted transition-smooth"
+                      className="w-full justify-between bg-transparent text-foreground hover:bg-tech-blue/10 hover:text-tech-blue transition-all duration-300 group mt-auto"
                     >
                       {t.common.learn_more}
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -174,7 +173,7 @@ export default function Services() {
             ].map((process, index) => (
               <Card key={process.step} className="bg-gradient-card border-0 shadow-tech hover-lift text-center">
                 <CardContent className="p-8">
-                  <div className="text-4xl font-bold text-gradient mb-4">
+                  <div className="text-4xl font-bold text-tech-blue mb-4">
                     {process.step}
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">

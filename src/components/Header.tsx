@@ -31,6 +31,7 @@ export default function Header() {
     { path: '/about', label: t.nav.about },
     { path: '/services', label: t.nav.services },
     { path: '/portfolio', label: t.nav.portfolio },
+    { path: '/team', label: t.nav.team },
     { path: '/careers', label: t.nav.careers },
     { path: '/contact', label: t.nav.contact },
   ];

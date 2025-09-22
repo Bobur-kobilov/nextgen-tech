@@ -13,7 +13,7 @@ export default function Portfolio() {
   const navigate = useNavigate();
 
   // Use data from constants
-  const projects = PROJECTS_DATA;
+  const projects: typeof PROJECTS_DATA = PROJECTS_DATA;
   const categories = FILTER_CATEGORIES.projects;
 
   return (
@@ -54,23 +54,24 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Our most impactful and innovative solutions
-            </p>
-          </div>
+      {/* Featured Projects - Only show if there are projects */}
+      {projects.length > 0 && (
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Featured Projects
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Our most impactful and innovative solutions
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {projects.filter(project => project.featured).length > 0 ? (
-              projects
-                .filter(project => project.featured)
-                .map((project) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              {projects.filter(project => project.featured).length > 0 ? (
+                projects
+                  .filter(project => project.featured)
+                  .map((project) => (
                 <Card key={project.id} className="bg-gradient-card border-0 shadow-tech hover-lift overflow-hidden group">
                   <div className="aspect-video overflow-hidden">
                     <img 
@@ -141,6 +142,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+      )}
 
       {/* All Projects */}
       <section className="py-16 lg:py-24 bg-muted/30">
@@ -155,7 +157,8 @@ export default function Portfolio() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {projects.length > 0 ? (
+              projects.map((project) => (
               <Card key={project.id} className="bg-background border shadow-sm hover-lift overflow-hidden group">
                 <div className="aspect-video overflow-hidden">
                   <img 
@@ -202,7 +205,22 @@ export default function Portfolio() {
                   </Button>
                 </CardContent>
               </Card>
-            ))}
+              ))
+            ) : (
+              <div className="col-span-3 flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-20 h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-6">
+                  <Folder className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{EMPTY_STATES.noProjects.title}</h3>
+                <p className="text-muted-foreground text-lg mb-6 max-w-md">{EMPTY_STATES.noProjects.message}</p>
+                <Button 
+                  onClick={() => navigate('/contact')}
+                  className="bg-gradient-accent hover:shadow-glow transition-smooth"
+                >
+                  {EMPTY_STATES.noProjects.action}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
